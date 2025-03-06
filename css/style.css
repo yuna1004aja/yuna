@@ -1,0 +1,214 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+h2 {
+    margin: 15px 0;
+    font-weight: 300;
+}
+
+.instructions {
+    margin-bottom: 20px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Collage Container Styles */
+.collage-container {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    background-color: #000;
+    cursor: pointer;
+    overflow: hidden;
+    background-image: url('../GDES_LAB.JPG');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Collage Piece Base Styles */
+.collage-piece {
+    position: absolute;
+    background-image: url('../GDES_LAB.JPG');
+    background-size: 800px 800px; /* Adjust to original image size */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                filter 0.5s ease, 
+                left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collage-piece:hover {
+    z-index: 10 !important;
+    filter: brightness(1.2) contrast(1.2) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Piece Style Variations for Diversity */
+.piece-style1 {
+    filter: brightness(1.2) contrast(1.1);
+    z-index: 2;
+}
+
+.piece-style2 {
+    filter: sepia(0.3) brightness(0.9);
+    z-index: 1;
+}
+
+.piece-style3 {
+    filter: hue-rotate(10deg) brightness(1.1);
+    z-index: 3;
+}
+
+.piece-style4 {
+    filter: saturate(1.2) contrast(1.2);
+    z-index: 2;
+}
+
+.piece-style5 {
+    filter: grayscale(0.3) brightness(1.1);
+    z-index: 1;
+}
+
+/* Border Style Variations */
+.border-white {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.border-gold {
+    border: 2px solid rgba(255, 215, 0, 0.7);
+}
+
+.border-blue {
+    border: 2px solid rgba(65, 105, 225, 0.7);
+}
+
+/* Control Button Styles */
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+input[type="range"] {
+    width: 150px;
+}
+
+#piece-count {
+    font-size: 14px;
+    width: 80px;
+    text-align: left;
+}
+
+/* Rotation Effect Classes */
+.rotate-slight {
+    transform: rotate(var(--random-rotate, 3deg));
+}
+
+.rotate-medium {
+    transform: rotate(var(--random-rotate, 8deg));
+}
+
+.rotate-large {
+    transform: rotate(var(--random-rotate, 15deg));
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(var(--random-rotate, 0deg)); }
+    50% { transform: translateY(-5px) rotate(var(--random-rotate, 0deg)); }
+    100% { transform: translateY(0) rotate(var(--random-rotate, 0deg)); }
+}
+
+.collage-piece {
+    animation: fadeIn 0.5s ease-out, float 8s ease-in-out infinite;
+    animation-delay: 0s, 0.5s;
+}
+
+/* Information section */
+.info {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.info a {
+    color: #9e9eff;
+    text-decoration: none;
+}
+
+.info a:hover {
+    text-decoration: underline;
+}
+
+/* Cut edges for the collage pieces */
+.cut-edge {
+    clip-path: polygon(0% 0%, 95% 5%, 100% 100%, 5% 95%);
+}
+
+.cut-edge2 {
+    clip-path: polygon(15% 0%, 100% 10%, 85% 100%, 0% 90%);
+}
+
+.cut-edge3 {
+    clip-path: polygon(5% 15%, 100% 0%, 95% 85%, 0% 100%);
+}
+
+.cut-edge4 {
+    clip-path: circle(45% at 50% 50%);
+}
+
+.cut-edge5 {
+    clip-path: ellipse(45% 40% at 50% 50%);
+}
